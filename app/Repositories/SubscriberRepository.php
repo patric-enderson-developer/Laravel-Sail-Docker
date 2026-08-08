@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Collection;
 
 class SubscriberRepository
 {
-    public function getAll(): Collection
+
+       public function getAll(): Collection
     {
         return Subscriber::all();
     }
