@@ -12,7 +12,7 @@ class SubscriberSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {    //Subscriber
          Subscriber::factory()->count(20)->create();
     }
 }
