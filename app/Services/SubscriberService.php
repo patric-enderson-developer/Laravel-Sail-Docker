@@ -11,7 +11,6 @@ class SubscriberService
         private SubscriberRepository $repository
     ) {
     }
-
     public function getAll(): Collection
     {
         return $this->repository->getAll();
