@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone', 20)->nullable();
+            $table->string('company')->nullable();
+            $table->string('position')->nullable();
+
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
