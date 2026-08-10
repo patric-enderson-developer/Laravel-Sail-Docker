@@ -13,12 +13,12 @@ class SubscriberRepository
         return Subscriber::all();
     }
 
-  public function create(array $data): Subscriber
+     public function create(array $data): Subscriber
     {
         return Subscriber::create($data);
     }
     public function findByEmail(string $email): ?Subscriber
-        {
-            return Subscriber::where('email', $email)->first();
-        }
+    {
+        return Subscriber::where('email', $email)->first();
+    }
 }
