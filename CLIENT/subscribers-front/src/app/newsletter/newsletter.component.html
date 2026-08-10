@@ -18,15 +18,14 @@
     Acompanhe e gerencie as pessoas cadastradas na sua newsletter.
   </p>
 </div>
-
 <button
   type="button"
   class="new-contact-button"
+  (click)="openModal()"
 >
   <span class="button-icon">+</span>
   Novo inscrito
 </button>
-
 
   </header>
 
@@ -156,4 +155,7 @@
 
   </main>
 
-</div>
+</div><app-contact-modal
+  [isOpen]="isModalOpen"
+  (close)="closeModal()"
+></app-contact-modal>

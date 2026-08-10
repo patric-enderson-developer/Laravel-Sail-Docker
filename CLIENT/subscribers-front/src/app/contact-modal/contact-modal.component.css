@@ -1,0 +1,306 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(3px);
+
+  pointer-events: auto;
+}
+
+.modal {
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  background: #ffffff;
+  border: 1px solid #eaecf0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 8px 20px rgba(15, 23, 42, 0.08);
+
+  animation: modal-enter 0.18s ease-out;
+}
+
+
+/* HEADER */
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 28px 30px 22px;
+
+  border-bottom: 1px solid #eaecf0;
+}
+
+.modal-badge {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: #2f6fed;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.modal-header h2 {
+  margin: 0 0 6px;
+
+  color: #172033;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal-header p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* BOTÃO FECHAR */
+
+.close-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 0;
+  border-radius: 9px;
+
+  background: #f2f4f7;
+  color: #667085;
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.close-button:hover {
+  background: #eaecf0;
+  color: #172033;
+}
+
+
+/* FORMULÁRIO */
+
+form {
+  padding: 26px 30px 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #344054;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #98a2b3;
+}
+
+.form-group input:hover {
+  border-color: #b8c0cc;
+}
+
+.form-group input:focus {
+  border-color: #2f6fed;
+
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.1);
+}
+
+
+/* ERRO */
+
+.form-group small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #b42318;
+
+  font-size: 12px;
+}
+
+
+/* DUAS COLUNAS */
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+
+/* RODAPÉ */
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 28px;
+  padding-top: 22px;
+
+  border-top: 1px solid #eaecf0;
+}
+
+.cancel-button,
+.save-button {
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.cancel-button {
+  border: 1px solid #d0d5dd;
+
+  background: #ffffff;
+  color: #344054;
+}
+
+.cancel-button:hover {
+  background: #f9fafb;
+}
+
+.save-button {
+  border: 1px solid #2f6fed;
+
+  background: #2f6fed;
+  color: #ffffff;
+}
+
+.save-button:hover {
+  background: #245dcc;
+  border-color: #245dcc;
+}
+
+.save-button:active {
+  transform: translateY(1px);
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal {
+    max-height: calc(100vh - 32px);
+    border-radius: 14px;
+  }
+
+  .modal-header {
+    padding: 22px 20px 18px;
+  }
+
+  form {
+    padding: 22px 20px 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .cancel-button,
+  .save-button {
+    width: 100%;
+  }
+}

@@ -1,1 +1,78 @@
-<p>contact-modal works!</p>
+@if (isOpen) {
+  <div class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge">NEWSLETTER</span>
+          <h2>Novo inscrito</h2>
+          <p>Cadastre uma nova pessoa na newsletter.</p>
+        </div>
+        <button type="button" class="close-button" (click)="closeModal()">×</button>
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="submit()">
+
+        <!-- NOME -->
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input id="name" type="text" formControlName="name" placeholder="Nome completo">
+          @if (contactForm.controls.name.touched && contactForm.controls.name.invalid) {
+            <small>Informe o nome.</small>
+          }
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" formControlName="email" placeholder="email@empresa.com">
+
+          @if (contactForm.controls.email.touched && contactForm.controls.email.invalid) {
+            <small>
+              @if (contactForm.controls.email.hasError('required')) {
+                O e-mail é obrigatório.
+              } @else {
+                Por favor, informe um endereço de e-mail válido.
+              }
+            </small>
+          }
+        </div>
+
+        <!-- TELEFONE / CARGO -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input
+              id="phone"
+              type="text"
+              formControlName="phone"
+              placeholder="(41) 99999-9999"
+              (input)="formatPhone($event)"
+              maxlength="15"
+            >
+
+            @if (contactForm.controls.phone.touched && contactForm.controls.phone.invalid) {
+              <small>Informe um telefone válido completo.</small>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="position">Cargo</label>
+            <input id="position" type="text" formControlName="position" placeholder="Ex: Gerente">
+          </div>
+        </div>
+
+        <!-- EMPRESA -->
+        <div class="form-group">
+          <label for="company">Empresa</label>
+          <input id="company" type="text" formControlName="company" placeholder="Nome da empresa">
+        </div>
+
+        <!-- AÇÕES -->
+        <div class="modal-footer">
+          <button type="button" class="cancel-button" (click)="closeModal()">Cancelar</button>
+          <button type="submit" class="save-button" [disabled]="contactForm.invalid">Salvar inscrito</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
