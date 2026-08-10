@@ -1,189 +1,497 @@
 :host {
 display: block;
 min-height: 100vh;
-background: #f6f7fb;
+background: #f8fafc;
 color: #172033;
 }
 
+/* =========================================
+PÁGINA
+========================================= */
+
 .newsletter-page {
-max-width: 1100px;
+width: 100%;
+max-width: 1180px;
 margin: 0 auto;
-padding: 60px 24px;
+padding: 48px 24px 60px;
+box-sizing: border-box;
 }
 
-.hero {
-background: linear-gradient(135deg, #1d3557, #457b9d);
-border-radius: 20px;
-padding: 48px;
-color: white;
-margin-bottom: 40px;
-box-shadow: 0 15px 35px rgba(29, 53, 87, 0.15);
+/* =========================================
+CABEÇALHO
+========================================= */
+
+.page-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30px;
+margin-bottom: 32px;
 }
 
-.badge {
+.page-title-area {
+min-width: 0;
+}
+
+.page-label {
 display: inline-block;
+margin-bottom: 10px;
+color: #2563eb;
 font-size: 12px;
 font-weight: 700;
 letter-spacing: 1.5px;
-margin-bottom: 14px;
-opacity: 0.8;
 }
 
-.hero h1 {
-margin: 0 0 12px;
-font-size: 38px;
-line-height: 1.15;
+.page-title-area h1 {
+margin: 0 0 8px;
+color: #111827;
+font-size: 32px;
+line-height: 1.2;
+font-weight: 700;
 }
 
-.hero p {
+.page-title-area p {
 margin: 0;
-max-width: 600px;
-font-size: 17px;
+color: #64748b;
+font-size: 15px;
 line-height: 1.6;
-opacity: 0.9;
 }
 
-.subscribers {
-background: white;
-border-radius: 20px;
-padding: 32px;
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+/* =========================================
+BOTÃO NOVO INSCRITO
+========================================= */
+
+.new-contact-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+flex-shrink: 0;
+
+padding: 11px 18px;
+
+border: none;
+border-radius: 9px;
+
+background: #2563eb;
+color: #ffffff;
+
+font-size: 14px;
+font-weight: 600;
+
+cursor: pointer;
+
+transition:
+background 0.2s ease,
+transform 0.2s ease,
+box-shadow 0.2s ease;
 }
 
-.section-header {
+.new-contact-button:hover {
+background: #1d4ed8;
+transform: translateY(-1px);
+box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+}
+
+.new-contact-button:active {
+transform: translateY(0);
+}
+
+.button-icon {
+font-size: 20px;
+line-height: 1;
+font-weight: 400;
+}
+
+/* =========================================
+CARD PRINCIPAL
+========================================= */
+
+.content-card {
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 14px;
+
+box-shadow:
+0 1px 2px rgba(15, 23, 42, 0.03),
+0 8px 24px rgba(15, 23, 42, 0.04);
+
+overflow: hidden;
+}
+
+/* =========================================
+CABEÇALHO DA LISTA
+========================================= */
+
+.list-header {
 display: flex;
 align-items: center;
 justify-content: space-between;
 gap: 20px;
-margin-bottom: 28px;
+
+padding: 24px 28px;
+
+border-bottom: 1px solid #eef0f3;
 }
 
-.section-header h2 {
-margin: 0 0 6px;
-font-size: 25px;
+.list-header h2 {
+margin: 0 0 5px;
+
+color: #111827;
+font-size: 19px;
+font-weight: 650;
 }
 
-.section-header p {
+.list-header p {
 margin: 0;
-color: #667085;
+
+color: #64748b;
+font-size: 13px;
 }
 
 .counter {
-background: #eef4ff;
-color: #2f6fed;
-padding: 8px 14px;
+flex-shrink: 0;
+
+padding: 7px 12px;
+
+border: 1px solid #dbeafe;
 border-radius: 20px;
-font-size: 14px;
+
+background: #eff6ff;
+color: #2563eb;
+
+font-size: 13px;
 font-weight: 600;
-white-space: nowrap;
 }
 
-.cards {
+/* =========================================
+LISTA DE CONTATOS
+========================================= */
+
+.contacts-list {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 18px;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 16px;
+
+padding: 24px 28px;
 }
 
-.card {
+/* =========================================
+CARD DO CONTATO
+========================================= */
+
+.contact-card {
 position: relative;
+
 display: flex;
 align-items: flex-start;
-gap: 14px;
-padding: 20px;
-border: 1px solid #eaecf0;
-border-radius: 14px;
-transition: 0.2s ease;
+justify-content: space-between;
+gap: 16px;
+
+min-width: 0;
+
+padding: 18px;
+
+border: 1px solid #e5e7eb;
+border-radius: 11px;
+
+background: #ffffff;
+
+transition:
+border-color 0.2s ease,
+box-shadow 0.2s ease,
+transform 0.2s ease;
 }
 
-.card:hover {
-transform: translateY(-3px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+.contact-card:hover {
+border-color: #cbd5e1;
+
+box-shadow:
+0 5px 15px rgba(15, 23, 42, 0.06);
+
+transform: translateY(-2px);
 }
 
-.avatar {
-width: 44px;
-height: 44px;
-flex-shrink: 0;
+/* =========================================
+CONTEÚDO DO CONTATO
+========================================= */
+
+.contact-content {
 display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-background: #e8f0fe;
-color: #2f6fed;
-font-weight: 700;
-font-size: 18px;
-}
+align-items: flex-start;
+gap: 13px;
 
-.card-content {
 min-width: 0;
 }
 
-.card h3 {
-margin: 0 0 5px;
-font-size: 16px;
+.contact-data {
+min-width: 0;
+padding-right: 4px;
 }
 
-.email,
-.company {
-margin: 0;
-color: #667085;
-font-size: 13px;
+/* =========================================
+AVATAR
+========================================= */
+
+.avatar {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 44px;
+height: 44px;
+
+flex-shrink: 0;
+
+border-radius: 50%;
+
+background: #eff6ff;
+color: #2563eb;
+
+font-size: 16px;
+font-weight: 700;
+}
+
+/* =========================================
+DADOS
+========================================= */
+
+.contact-name {
+margin: 1px 0 5px;
+
+color: #111827;
+
+font-size: 15px;
+font-weight: 650;
+
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 }
 
-.company {
-margin-top: 5px;
-color: #98a2b3;
+.contact-email,
+.contact-company {
+margin: 0;
+
+color: #64748b;
+
+font-size: 13px;
+line-height: 1.5;
+
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
+.contact-company {
+margin-top: 3px;
+color: #94a3b8;
+}
+
+/* =========================================
+STATUS
+========================================= */
+
 .status {
-position: absolute;
-top: 14px;
-right: 14px;
-padding: 4px 8px;
-border-radius: 12px;
+display: inline-flex;
+align-items: center;
+gap: 5px;
+
+flex-shrink: 0;
+
+padding: 5px 9px;
+
+border-radius: 20px;
+
 background: #ecfdf3;
-color: #027a48;
+color: #15803d;
+
 font-size: 11px;
 font-weight: 600;
 }
 
-.status.inactive {
-background: #fef3f2;
-color: #b42318;
+.status-dot {
+width: 6px;
+height: 6px;
+
+border-radius: 50%;
+
+background: #22c55e;
 }
+
+.status.inactive {
+background: #fef2f2;
+color: #b91c1c;
+}
+
+.status.inactive .status-dot {
+background: #ef4444;
+}
+
+/* =========================================
+PAGINAÇÃO
+========================================= */
+
+.pagination {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+
+padding: 18px 28px;
+
+border-top: 1px solid #eef0f3;
+}
+
+.pagination-button {
+padding: 8px 12px;
+
+border: 1px solid #e2e8f0;
+border-radius: 7px;
+
+background: #ffffff;
+color: #475569;
+
+font-size: 13px;
+font-weight: 500;
+
+cursor: pointer;
+
+transition:
+background 0.2s ease,
+border-color 0.2s ease;
+}
+
+.pagination-button:hover {
+background: #f8fafc;
+border-color: #cbd5e1;
+}
+
+.page-numbers {
+display: flex;
+align-items: center;
+gap: 5px;
+}
+
+.page-number {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 32px;
+height: 32px;
+
+border: 1px solid transparent;
+border-radius: 7px;
+
+background: transparent;
+color: #64748b;
+
+font-size: 13px;
+font-weight: 500;
+
+cursor: pointer;
+}
+
+.page-number:hover {
+background: #f1f5f9;
+}
+
+.page-number.active {
+background: #2563eb;
+color: #ffffff;
+}
+
+/* =========================================
+RESPONSIVIDADE
+========================================= */
 
 @media (max-width: 850px) {
-.cards {
-grid-template-columns: repeat(2, 1fr);
-}
+
+.contacts-list {
+grid-template-columns: 1fr;
 }
 
-@media (max-width: 600px) {
+}
+
+@media (max-width: 650px) {
+
 .newsletter-page {
-padding: 30px 16px;
+padding: 30px 16px 40px;
 }
 
-.hero {
-padding: 32px 24px;
-}
-
-.hero h1 {
-font-size: 30px;
-}
-
-.subscribers {
-padding: 22px;
-}
-
-.section-header {
+.page-header {
 align-items: flex-start;
 flex-direction: column;
 }
 
-.cards {
-grid-template-columns: 1fr;
+.page-title-area h1 {
+font-size: 28px;
 }
+
+.new-contact-button {
+width: 100%;
+}
+
+.content-card {
+border-radius: 12px;
+}
+
+.list-header {
+align-items: flex-start;
+flex-direction: column;
+
+```
+padding: 20px;
+```
+
+}
+
+.contacts-list {
+padding: 16px 20px;
+}
+
+.contact-card {
+padding: 16px;
+}
+
+.pagination {
+padding: 16px 20px;
+}
+
+}
+
+@media (max-width: 430px) {
+
+.newsletter-page {
+padding-left: 12px;
+padding-right: 12px;
+}
+
+.page-title-area h1 {
+font-size: 25px;
+}
+
+.page-title-area p {
+font-size: 14px;
+}
+
+.list-header h2 {
+font-size: 18px;
+}
+
+.contact-card {
+gap: 10px;
+}
+
+.status {
+padding: 4px 7px;
+font-size: 10px;
+}
+
+.pagination-button {
+font-size: 12px;
+padding: 7px 9px;
+}
+
 }
