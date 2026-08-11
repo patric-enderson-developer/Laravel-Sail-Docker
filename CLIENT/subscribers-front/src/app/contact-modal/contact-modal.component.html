@@ -2,6 +2,18 @@
   <div class="modal-overlay">
     <div class="modal">
       <div class="modal-header">
+        <!-- ALERTAS -->
+      @if (submitError) {
+        <div class="alert-error">
+          {{ submitError }}
+        </div>
+      }
+
+      @if (submitSuccess) {
+        <div class="alert-success">
+          Inscrito salvo com sucesso!
+        </div>
+      }
         <div>
           <span class="modal-badge">NEWSLETTER</span>
           <h2>Novo inscrito</h2>
