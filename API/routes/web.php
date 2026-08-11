@@ -7,7 +7,7 @@ use App\Services\SubscriberService;
 
 Route::get('/test-subscriber', function (SubscriberService $service) {
     return response()->json(
-        $service->getAll()
+        $service->getAll()->paginate(100)
     );
 });
 Route::get('/', function () {
@@ -15,8 +15,4 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('subscribers')->group(function () {
-    Route::get('/', [SubscriberController::class, 'index']);
-    Route::post('/', [SubscriberController::class, 'store']);
 
-});
