@@ -1,161 +1,165 @@
-<div class="newsletter-page">
+<div class="partners-page">
+  <div class="page-shell">
+    <!-- CABEÇALHO -->
+    <header class="page-header">
+      <div class="page-intro">
+        <span class="page-label">
+          Parceiros
+        </span>
 
-  <!-- CABEÇALHO -->
+        <h1>
+          Seja um parceiro
+        </h1>
 
-  <header class="page-header">
-
-
-<div class="page-title-area">
-  <span class="page-label">
-    NEWSLETTER
-  </span>
-
-  <h1>
-    Gerencie seus inscritos
-  </h1>
-
-  <p>
-    Acompanhe e gerencie as pessoas cadastradas na sua newsletter.
-  </p>
-</div>
-<button
-  type="button"
-  class="new-contact-button"
-  (click)="openModal()"
->
-  <span class="button-icon">+</span>
-  Novo inscrito
-</button>
-
-  </header>
-
-  <!-- CONTEÚDO -->
-
-  <main class="content-card">
-
-
-<!-- CABEÇALHO DA LISTA -->
-<div class="list-header">
-
-  <div>
-    <h2>
-      Inscritos
-    </h2>
-
-    <p>
-      Pessoas cadastradas na nossa newsletter.
-    </p>
-  </div>
-
-  <div class="counter">
-    {{ contacts.length }} inscritos
-  </div>
-
-</div>
-
-
-<!-- CONTATOS -->
-<div class="contacts-list">
-
-  @for (contact of contacts; track contact.id) {
-
-    <article class="contact-card">
-
-      <div class="contact-content">
-
-        <!-- AVATAR -->
-        <div class="avatar">
-          {{ contact.name.charAt(0).toUpperCase() }}
-        </div>
-
-
-        <!-- INFORMAÇÕES -->
-        <div class="contact-data">
-
-          <h3 class="contact-name">
-            {{ contact.name }}
-          </h3>
-
-          <p class="contact-email">
-            {{ contact.email }}
-          </p>
-
-          @if (contact.company) {
-            <p class="contact-company">
-              {{ contact.company }}
-            </p>
-          }
-
-        </div>
-
+        <p>
+          Acompanhe empresas e contatos estratégicos conectados à sua plataforma em um só lugar.
+        </p>
       </div>
 
+      <div class="page-actions">
+        <button
+          type="button"
+          class="new-contact-button"
+          (click)="openModal()"
+        >
+          <span class="button-icon" aria-hidden="true">+</span>
+         Quero ser parceiro
+        </button>
+      </div>
+    </header>
 
-      <!-- STATUS -->
-      <span
-        class="status"
-        [class.inactive]="!contact.active"
-      >
-        <span class="status-dot"></span>
+    <!-- CONTEÚDO -->
+    <main class="content-card">
+      <!-- CABEÇALHO DA LISTA -->
+      <div class="list-header">
+        <div>
+          <h2>
+            Parceiros
+          </h2>
 
-        {{ contact.active ? 'Ativo' : 'Inativo' }}
-      </span>
+          <p>
+            Visualize os parceiros cadastrados e o status de cada relacionamento.
+          </p>
+        </div>
 
-    </article>
+        <div class="counter">
+          {{ contacts?.length || 0 }}
+          {{ (contacts?.length || 0) === 1 ? 'parceiro' : 'parceiros' }}
+        </div>
+      </div>
 
-  }
+      @if (contacts?.length) {
+        <!-- LISTA -->
+        <div class="contacts-list">
+          @for (contact of contacts; track contact.id) {
+            <article class="contact-card">
+              <div class="contact-content">
+                <!-- AVATAR -->
+                <div class="avatar" aria-hidden="true">
+                  {{ contact.name.charAt(0).toUpperCase() }}
+                </div>
 
-</div>
+                <!-- INFORMAÇÕES -->
+                <div class="contact-data">
+                  <h3 class="contact-name">
+                    {{ contact.name }}
+                  </h3>
 
+                  <p class="contact-email">
+                    {{ contact.email }}
+                  </p>
 
-<!-- PAGINAÇÃO -->
-<div class="pagination">
+                  @if (contact.company || contact.position) {
+                    <p class="contact-company">
+                      @if (contact.company) {
+                        <span>{{ contact.company }}</span>
+                      }
 
-  <button
-    type="button"
-    class="pagination-button"
-  >
-    ← Anterior
-  </button>
+                      @if (contact.company && contact.position) {
+                        <span class="separator">•</span>
+                      }
 
-  <div class="page-numbers">
+                      @if (contact.position) {
+                        <span>{{ contact.position }}</span>
+                      }
+                    </p>
+                  }
+                </div>
+              </div>
 
-    <button
-      type="button"
-      class="page-number active"
-    >
-      1
-    </button>
+              <!-- STATUS -->
+              <div class="contact-side">
+                <span
+                  class="status"
+                  [class.inactive]="!contact.active"
+                >
+                  <span class="status-dot" aria-hidden="true"></span>
+                  {{ contact.active ? 'Ativo' : 'Inativo' }}
+                </span>
+              </div>
+            </article>
+          }
+        </div>
 
-    <button
-      type="button"
-      class="page-number"
-    >
-      2
-    </button>
+        <!-- PAGINAÇÃO -->
+        <nav class="pagination" aria-label="Paginação">
+          <button
+            type="button"
+            class="pagination-button"
+          >
+            ← Anterior
+          </button>
 
-    <button
-      type="button"
-      class="page-number"
-    >
-      3
-    </button>
+          <div class="page-numbers">
+            <button
+              type="button"
+              class="page-number active"
+              aria-current="page"
+            >
+              1
+            </button>
 
+            <button
+              type="button"
+              class="page-number"
+            >
+              2
+            </button>
+
+            <button
+              type="button"
+              class="page-number"
+            >
+              3
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="pagination-button"
+          >
+            Próxima →
+          </button>
+        </nav>
+      } @else {
+        <!-- ESTADO VAZIO -->
+        <div class="empty-state">
+          <div class="empty-icon" aria-hidden="true">
+            👥
+          </div>
+
+          <h3>Nenhum parceiro cadastrado</h3>
+
+          <p>
+            Comece adicionando seu primeiro parceiro para visualizar as informações aqui.
+          </p>
+        </div>
+      }
+    </main>
   </div>
-
-  <button
-    type="button"
-    class="pagination-button"
-  >
-    Próxima →
-  </button>
-
 </div>
 
-
-  </main>
-
-</div><app-contact-modal
+<app-contact-modal
   [isOpen]="isModalOpen"
   (close)="closeModal()"
 ></app-contact-modal>
