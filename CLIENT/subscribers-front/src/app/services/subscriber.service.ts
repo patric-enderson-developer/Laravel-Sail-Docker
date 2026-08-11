@@ -20,7 +20,9 @@ export interface Contact {
 export class ContactService {
 
   private http = inject(HttpClient);
-  private apiUrl = 'http://127.0.0.1/api/subscribers';
+
+  // URL CORRETA - ajuste a porta se necessário (geralmente 8000)
+  private apiUrl = 'http://127.0.0.1:8000/api/subscribers';
 
   getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.apiUrl);
