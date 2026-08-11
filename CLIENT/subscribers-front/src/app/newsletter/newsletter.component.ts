@@ -18,15 +18,24 @@ export class NewsletterComponent implements OnInit {
   isModalOpen = false;
 
   ngOnInit(): void {
+    this.loadContacts();
+  }
+
+  loadContacts(): void {
     this.contactService.getContacts().subscribe({
-      next: (data) => {
-        this.contacts = data;
+      next: (response: any) => {
+        console.log('Resposta da API:', response);
+
+        // Se sua API retorna { success: true, data: [...] }
+        this.contacts = response.data ?? response;
       },
       error: (error) => {
         console.error('Erro ao buscar inscritos:', error);
       }
     });
   }
+
+
 
   openModal(): void {
     console.log('ABRIU MODAL');
