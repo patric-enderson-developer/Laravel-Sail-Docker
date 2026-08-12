@@ -101,6 +101,11 @@ Laravel API
    ↓
 Validation
    ↓
+Service
+   ↓
+Repository
+   ↓
+   ↓
 Eloquent
    ↓
 MySQL
