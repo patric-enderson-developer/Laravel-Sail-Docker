@@ -105,7 +105,6 @@ Service
    ↓
 Repository
    ↓
-   ↓
 Eloquent
    ↓
 MySQL
