@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->longText('content');
-            $table->boolean('is_published')->default(false);
+            $table->string('featured_image')->nullable();
+            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }

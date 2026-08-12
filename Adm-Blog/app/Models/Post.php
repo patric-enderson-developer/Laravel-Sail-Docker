@@ -9,13 +9,16 @@ class Post extends Model
 {
     use HasFactory;
 
-      protected $fillable = [
+    protected $fillable = [
         'title',
+        'slug',
         'content',
-        'is_published',
+        'featured_image',
+        'status',
+        'is_featured',
     ];
 
     protected $casts = [
-        'is_published' => 'boolean',
+        'is_featured' => 'boolean',
     ];
 }
