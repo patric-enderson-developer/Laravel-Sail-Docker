@@ -9,10 +9,8 @@ class PostSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(15)->create();
-
-        Post::factory()->published()->count(5)->create();
-
-        Post::factory()->draft()->count(5)->create();
+        Post::factory()->count(15)->create();           // 15 publicados (padrão)
+        Post::factory()->published()->count(3)->create(); // +3 publicados
+        Post::factory()->draft()->count(2)->create();     // 2 rascunhos (não aparecem)
     }
 }
