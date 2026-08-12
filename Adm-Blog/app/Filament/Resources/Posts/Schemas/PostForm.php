@@ -15,7 +15,7 @@ class PostForm
     public static function configure(Schema $schema): Schema
     {
         return $schema->components([
-            // Seus inputs vão aqui dentro
+
             TextInput::make('title')
                 ->label('Título')
                 ->required()
