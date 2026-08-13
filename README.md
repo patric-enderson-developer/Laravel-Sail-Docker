@@ -12,7 +12,7 @@ API Laravel + Angular NewsLatter + Adm Blog - Painel Filament
 
 # API Laravel + Angular Newsletter + Blog + Filament
 
-Projeto desenvolvido para explorar a integração de diferentes tecnologias do ecossistema Laravel em uma aplicação única, utilizando cada stack de acordo com uma responsabilidade específica.
+Projeto desenvolvido para explorar a integração de diferentes tecnologias do ecossistema Laravel, utilizando cada stack de acordo com uma responsabilidade específica.
 
 A aplicação combina **Laravel, Livewire, Filament, Angular, Docker, Laravel Sail e MySQL**, criando um pequeno ecossistema com **Blog, painel administrativo e Newsletter**.
 
