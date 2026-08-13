@@ -68,6 +68,7 @@ O projeto foi dividido em diferentes responsabilidades:
 ```
 
 ### Blog
+https://github.com/patric-enderson-developer/Livewire-Social-Feed
 
 O projeto possui um Blog desenvolvido com **Laravel + Livewire**, utilizando uma interface reativa para apresentação dos conteúdos.
 
