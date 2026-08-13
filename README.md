@@ -21,50 +21,51 @@ A aplicação combina **Laravel, Livewire, Filament, Angular, Docker, Laravel Sa
 O projeto foi dividido em diferentes responsabilidades:
 
 ```text
-                         ┌──────────────────┐
-                         │     Filament     │
-                         │ Painel Admin     │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │     Laravel      │
-                         │     Backend      │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                         ┌──────────────────┐
-                         │      MySQL       │
-                         │    Database      │
-                         └──────────────────┘
-
-┌──────────────────┐
-│    Livewire      │
-│      Blog        │
-└────────┬─────────┘
-         │
-         ▼
-    Posts do Blog
+              ┌──────────────────┐        ┌──────────────────┐
+              │     Livewire     │        │     Filament     │
+              │       Blog       │        │ Painel Admin     │
+              └────────┬─────────┘        └────────┬─────────┘
+                       │                           │
+                       └─────────────┬─────────────┘
+                                     │
+                                     ▼
+                            ┌─────────────────┐
+                            │     Laravel     │
+                            │     Backend     │
+                            │                 │
+                            │   Controller    │
+                            │       ↓         │
+                            │    Eloquent     │
+                            └────────┬────────┘
+                                     │
+                                     ▼
+                                ┌─────────┐
+                                │  MySQL  │
+                                └─────────┘
 
 
-┌──────────────────┐
-│     Angular      │
-│    Newsletter    │
-└────────┬─────────┘
-         │ HTTP
-         ▼
-┌──────────────────┐
-│   Laravel API    │
-│ Subscribers API  │
-└────────┬─────────┘
-         │
-         ▼
-    ┌─────────┐
-    │  MySQL  │
-    └─────────┘
+                            ┌─────────────────┐
+                            │     Angular     │
+                            │    Newsletter   │
+                            └────────┬────────┘
+                                     │
+                                    HTTP
+                                     │
+                                     ▼
+                            ┌─────────────────┐
+                            │   Laravel API   │
+                            │   Controller    |
+                            |   Service       |
+                            |   Repository    |
+                            │       ↓         │
+                            │    Eloquent     │
+                            └────────┬────────┘
+                                     │
+                                     ▼
+                                ┌─────────┐
+                                │  MySQL  │
+                                └─────────┘
 ```
-
-## Funcionalidades
 
 ### Blog
 
