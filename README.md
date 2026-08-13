@@ -126,7 +126,7 @@ A API também disponibiliza os dados cadastrados para consulta pelo frontend.
 
 ## Integração entre as Tecnologias
 
-A proposta principal do projeto foi utilizar cada tecnologia em uma função específica, simulando uma arquitetura onde diferentes aplicações.
+A proposta principal do projeto foi utilizar cada tecnologia em uma função específica.
 
 ### Blog
 
